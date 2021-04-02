@@ -1,10 +1,11 @@
-import styled from 'styled-components'
+import Link from "next/link";
+import Hero from "../components/general/homepage/hero";
+import Layout from "../components/general/Layout";
 
-const Title = styled.h1`
-  color: red;
-  font-size: 50px;
-`
+const IndexPage = () => (
+	<Layout title="Patryck's Portfolio">
+		<Hero />
+	</Layout>
+);
 
-export default function Home() {
-  return <Title>My page</Title>
-}
+export default IndexPage;

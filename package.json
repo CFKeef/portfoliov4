@@ -1,23 +1,36 @@
 {
-  "name": "with-typescript-styled-components",
+  "name": "portfoliov4",
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "type-check": "tsc",
+    "lint": "eslint . --ext .ts"
   },
   "dependencies": {
     "next": "latest",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
-    "styled-components": "^5.0.0"
+    "next-compose-plugins": "^2.2.1",
+    "next-connect": "^0.10.1",
+    "next-fonts": "^1.5.1",
+    "next-themes": "^0.0.14",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-hook-form": "^7.0.0",
+    "react-query": "^3.13.3",
+    "react-select": "^4.3.0",
+    "styled-components": "^5.2.3",
+    "styled-modern-css-reset": "^1.0.4"
   },
   "devDependencies": {
-    "@types/node": "12.0.12",
-    "@types/react": "16.8.23",
-    "@types/react-dom": "16.8.4",
-    "@types/styled-components": "5.0.1",
-    "babel-plugin-styled-components": "^1.10.0",
+    "@types/node": "^12.12.21",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
+    "@types/styled-components": "^5.1.9",
+    "@typescript-eslint/eslint-plugin": "^4.20.0",
+    "@typescript-eslint/parser": "^4.20.0",
+    "eslint": "^7.23.0",
+    "ts-node": "^9.1.1",
     "typescript": "4.0"
   },
   "license": "MIT"
