@@ -5,6 +5,7 @@ import Spotlight from "../components/homepage/spotlight";
 import styled from "styled-components";
 import Selected from "../components/homepage/selected";
 import axios from "axios";
+import CTA from "../components/homepage/cta";
 
 const Spacer = styled.br`
 	margin: 1rem 0;
@@ -44,6 +45,9 @@ const IndexPage: React.FunctionComponent<Props> = ({ data }) => (
 				return !element.fields.current;
 			})}
 		/>
+		<Spacer />
+		<CTA />
+		<Spacer />
 	</Layout>
 );
 

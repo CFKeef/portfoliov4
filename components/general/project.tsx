@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { List } from "./containers";
 import { ParagraphText, SectionSplitterText } from "./text";
 import { Button } from "./input/index";
+import Link from "next/link";
 
 interface ProjectProps {
 	name: string;
@@ -110,6 +111,11 @@ const CommitText = styled(ParagraphText)`
 	text-align: left;
 `;
 
+const Anchor = styled.a`
+	text-decoration: none;
+	color: var(--text);
+`;
+
 const Project: React.FunctionComponent<ProjectProps> = ({
 	name,
 	desc,
@@ -152,12 +158,20 @@ const Project: React.FunctionComponent<ProjectProps> = ({
 			<ButtonRow>
 				{deployedLink && (
 					<ButtonContainer>
-						<Button>Visit </Button>
+						<Button>
+							<Link href={deployedLink} passHref={true}>
+								<Anchor href={deployedLink}>Visit</Anchor>
+							</Link>
+						</Button>
 					</ButtonContainer>
 				)}
 				{repoLink && (
 					<ButtonContainer>
-						<Button>View Repo</Button>
+						<Button>
+							<Link href={repoLink} passHref={true}>
+								<Anchor href={repoLink}>Repo</Anchor>
+							</Link>
+						</Button>
 					</ButtonContainer>
 				)}
 			</ButtonRow>

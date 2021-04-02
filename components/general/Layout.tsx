@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import Head from "next/head";
 import { ResponsiveContentContainer } from "./containers";
+import Footer from "./footer";
 
 type Props = {
 	children?: ReactNode;
@@ -21,7 +22,7 @@ const Layout = ({ children, title = "This is the default title" }: Props) => (
 			<nav></nav>
 		</header>
 		{children}
-		<footer></footer>
+		<Footer />
 	</ResponsiveContentContainer>
 );
 

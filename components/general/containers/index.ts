@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const ResponsiveContentContainer = styled.div`
+display:flex;
+align-items:center;
+flex-direction:column;
     @media (max-width: 30EM) {
         margin: 20px;
         width: calc( 100% - 40px );
