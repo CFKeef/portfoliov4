@@ -13,9 +13,18 @@ export const ParagraphText = styled.p`
     margin: 0;
     font-size: 1.1REM;
     color: var(--text);
-    width: 100%;
-    text-align: left;
+   
     margin: .5REM;
+
+    @media (max-width: 30em) {
+        width: 100%; 
+        text-align: left;
+    }
+
+    @media (min-width: 30em) {
+        width: 75%;
+        text-align: center;
+    }
 `
 
 export const SectionSplitterText = styled.span`
@@ -25,6 +34,14 @@ export const SectionSplitterText = styled.span`
     letter-spacing: var(--letterspacing);
     text-transform: uppercase;
     font-weight: 600;
-    width: 100%;
-    margin: .5REM;
+    
+    margin: .5REM 0;
+
+    @media (max-width: 30em) {
+        width: 100%;
+    }
+
+    @media (min-width: 30em) {
+        width: 75%;
+    }
 `

@@ -9,6 +9,7 @@
     "lint": "eslint . --ext .ts"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "next": "latest",
     "next-compose-plugins": "^2.2.1",
     "next-connect": "^0.10.1",
@@ -23,6 +24,7 @@
     "styled-modern-css-reset": "^1.0.4"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/node": "^12.12.21",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",

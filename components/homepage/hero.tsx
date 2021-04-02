@@ -5,10 +5,15 @@ import {
 	SectionSplitterText,
 } from "../general/text/index";
 import { SingleColumnContentContainer } from "../general/containers/index";
+import styled from "styled-components";
+const Spacer = styled.br`
+	margin-top: 1rem;
+`;
 
 const Hero: React.FunctionComponent = () => {
 	return (
 		<SingleColumnContentContainer>
+			<Spacer />
 			<SectionSplitterText>Introduction</SectionSplitterText>
 			<HeaderText>Hi, I'm Patryck</HeaderText>
 			<ParagraphText>

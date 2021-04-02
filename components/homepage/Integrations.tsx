@@ -2,7 +2,6 @@ import React from "react";
 import { List, SingleColumnContentContainer } from "../general/containers";
 import { ParagraphText, SectionSplitterText } from "../general/text";
 import styled from "styled-components";
-import { connect } from "http2";
 
 type Integration = {
 	id: string;
@@ -25,12 +24,12 @@ const Integration = styled.li`
 		width: 100%;
 	}
 	@media (min-width: 30em) {
-		width: 75%;
+		width: 40%;
 	}
 `;
 
 const IntegrationKeyText = styled.span`
-	color: white;
+	color: var(--text);
 	font-size: 1rem;
 	width: 100%;
 	margin-left: 0.75rem;
@@ -38,7 +37,7 @@ const IntegrationKeyText = styled.span`
 
 const IntegrationValueText = styled.span`
 	font-weight: 600;
-	color: white;
+	color: var(--text);
 	font-size: 1.5rem;
 	width: 100%;
 	margin-left: 0.75rem;

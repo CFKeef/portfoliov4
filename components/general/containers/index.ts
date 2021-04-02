@@ -20,6 +20,7 @@ export const SingleColumnContentContainer = styled(ResponsiveContentContainer)`
     flex-direction: column;
 `
 
+
 export const List = styled.ul`
     list-style: none;
     padding: none;
@@ -31,3 +32,6 @@ export const List = styled.ul`
     width: 100%;
 `
 
+export const RowList = styled(List)`
+    flex-direction: row;
+`
