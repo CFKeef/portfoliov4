@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
-import { ParagraphText, SectionSplitterText } from "./text";
+import { SectionSplitterText } from "./text";
 
 const FooterContainer = styled.footer`
 	width: 100%;
@@ -37,7 +37,7 @@ export const ColumnEntry = styled.a`
 	text-decoration: none;
 `;
 
-const Footer = () => {
+const Footer = (): JSX.Element => {
 	return (
 		<FooterContainer>
 			<Column>

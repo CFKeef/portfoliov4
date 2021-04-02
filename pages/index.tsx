@@ -32,7 +32,7 @@ const IndexPage: React.FunctionComponent<Props> = ({ data }) => (
 		<Spacer />
 		<Spotlight
 			project={
-				data.items.filter((element) => {
+				data.items.filter((element: { fields: { current: never } }) => {
 					{
 						return element.fields.current;
 					}
@@ -41,9 +41,11 @@ const IndexPage: React.FunctionComponent<Props> = ({ data }) => (
 		/>
 		<Spacer />
 		<Selected
-			projects={data.items.filter((element) => {
-				return !element.fields.current;
-			})}
+			projects={data.items.filter(
+				(element: { fields: { current: never } }) => {
+					return !element.fields.current;
+				}
+			)}
 		/>
 		<Spacer />
 		<CTA />
@@ -53,6 +55,7 @@ const IndexPage: React.FunctionComponent<Props> = ({ data }) => (
 
 export default IndexPage;
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getStaticProps = async () => {
 	const data = await axios.get(process.env.CONTENTFUL_LINK as string);
 	return {

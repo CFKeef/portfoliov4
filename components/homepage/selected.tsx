@@ -28,21 +28,30 @@ const Selected: React.FunctionComponent<Props> = ({ projects }) => {
 	const generateProjects = () => {
 		return (
 			<ProjectList>
-				{projects.map((element: { fields: any }) => {
-					return (
-						<LiWrapper key={element.fields.title}>
-							<Project
-								name={element.fields.title}
-								desc={element.fields.desc}
-								tech={element.fields.tech}
-								deployedLink={element.fields.deployedLink}
-								repoLink={element.fields.gitLink}
-								showLastCommit={false}
-								mini={true}
-							/>
-						</LiWrapper>
-					);
-				})}
+				{projects.map(
+					(element: {
+						fields: {
+							title: string;
+							desc: string;
+							tech: string[];
+							deployedLink: string | undefined;
+							gitLink: string | undefined;
+						};
+					}) => {
+						return (
+							<LiWrapper key={element.fields.title}>
+								<Project
+									name={element.fields.title}
+									desc={element.fields.desc}
+									tech={element.fields.tech}
+									deployedLink={element.fields.deployedLink}
+									repoLink={element.fields.gitLink}
+									showLastCommit={false}
+								/>
+							</LiWrapper>
+						);
+					}
+				)}
 			</ProjectList>
 		);
 	};

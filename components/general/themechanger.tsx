@@ -22,7 +22,7 @@ const ThemeButton = styled.button`
 	}
 `;
 
-const ThemeChanger = () => {
+const ThemeChanger: React.FunctionComponent = () => {
 	const { theme, setTheme } = useTheme();
 	const [isMounted, setIsMounted] = useState(false);
 
@@ -41,7 +41,7 @@ const ThemeChanger = () => {
 	if (!isMounted) return <Skeleton />;
 
 	return (
-		<ThemeButton onClick={() => handleChange(theme)}>
+		<ThemeButton onClick={() => handleChange(theme as string)}>
 			{theme === "light" ? <BsSun /> : <BsMoon />}
 		</ThemeButton>
 	);

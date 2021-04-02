@@ -34,7 +34,7 @@ const NavEntry = styled.a`
 	text-decoration: none;
 `;
 
-const Nav = () => {
+const Nav = (): JSX.Element => {
 	return (
 		<NavContainer>
 			<ThemeChanger />

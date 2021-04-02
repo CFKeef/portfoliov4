@@ -1,6 +1,6 @@
 import React from "react";
 import { List, SingleColumnContentContainer } from "../general/containers";
-import { ParagraphText, SectionSplitterText } from "../general/text";
+import { SectionSplitterText } from "../general/text";
 import styled from "styled-components";
 
 type Integration = {
@@ -43,7 +43,7 @@ const IntegrationValueText = styled.span`
 	margin-left: 0.75rem;
 `;
 
-const Integrations = () => {
+const Integrations = (): JSX.Element => {
 	/**
 	 * Generates the little content blocks that pull info from somewhere and display
 	 */
