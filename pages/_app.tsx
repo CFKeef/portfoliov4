@@ -36,6 +36,10 @@ body {
 	--fgPurpleDark: #081228;
 	--fgPurpleLighterDark: #191D3A; 
 	--text: #000;
+	--buttonText: #FFF;
+	--themeFg: #DB3B93;
+	--themeFill: #fff;
+	--commitFill: #DB3B93;
 	--accent1: #FAFAFA;
 	--accent2: #EAEAEA;
 	--accent3: #999;
@@ -49,6 +53,10 @@ body {
 	--bg: #081228;
 	--fg: #191D3A;
 	--text: #FFF;
+	--buttonText: #FFF;
+	--themeFg: #191D3A;
+	--themeFill: #DB3B93;
+	--commitFill: #191D3A;
 	--accent1: #111;
 	--accent2: #333;
 	--accent3: #444;

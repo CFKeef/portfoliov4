@@ -30,7 +30,7 @@ const ColumnHeader = styled(SectionSplitterText)`
 	font-size: 0.8rem;
 `;
 
-const ColumnEntry = styled.a`
+export const ColumnEntry = styled.a`
 	font-size: 0.8rem;
 	margin: 0.5rem 0;
 	color: var(--text);

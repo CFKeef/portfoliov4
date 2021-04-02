@@ -12,7 +12,6 @@ interface ProjectProps {
 	deployedLink?: string;
 	repoLink?: string;
 	showLastCommit?: boolean;
-	mini?: boolean;
 }
 
 const BorderedContainer = styled.section`
@@ -90,7 +89,7 @@ const ButtonContainer = styled.div`
 `;
 
 const CommitContainer = styled.div`
-	background-color: var(--fg);
+	background-color: var(--commitFill);
 	display: flex;
 	justify-content: space-evenly;
 	align-items: flex-start;
@@ -109,11 +108,12 @@ const CommitText = styled(ParagraphText)`
 	font-size: 1rem;
 	font-weight: 600;
 	text-align: left;
+	color: var(--buttonText);
 `;
 
 const Anchor = styled.a`
 	text-decoration: none;
-	color: var(--text);
+	color: var(--buttonText);
 `;
 
 const Project: React.FunctionComponent<ProjectProps> = ({
@@ -123,7 +123,6 @@ const Project: React.FunctionComponent<ProjectProps> = ({
 	deployedLink,
 	repoLink,
 	showLastCommit,
-	mini,
 }) => {
 	const generateCommit = () => {
 		return (

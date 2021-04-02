@@ -8,7 +8,7 @@ export const Button = styled.button `
 	font-weight: bold;
 	border-radius: var(--border-radius);
 	transition: background-color 0.15s ease;
-	color: var(--text);
+	color: var(--buttonText);
     
 	&:hover {
 		background-color: var(--bg);
