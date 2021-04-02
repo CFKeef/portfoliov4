@@ -20,6 +20,9 @@ body {
 	--white: #fff;
 	--purple: #DB3B93;
 	--letter-spacing: -.025EM;
+	--border-radius: .75REM;
+
+
 	background-color: var(--bg);
 	display: flex;
 	justify-content: flex-start;
