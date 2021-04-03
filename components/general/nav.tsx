@@ -2,7 +2,6 @@ import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 import { List } from "./containers";
-import { ColumnEntry } from "./footer";
 import ThemeChanger from "./themechanger";
 
 const NavContainer = styled.header`
