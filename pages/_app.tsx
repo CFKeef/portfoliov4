@@ -79,7 +79,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 			<QueryClientProvider client={queryClientRef.current}>
 				<Hydrate state={pageProps.dehydratedState}>
 					<GlobalStyle />
-					<ThemeProvider>
+					<ThemeProvider defaultTheme="dark">
 						<Component {...pageProps} />
 					</ThemeProvider>
 				</Hydrate>

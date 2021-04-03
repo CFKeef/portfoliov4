@@ -15,7 +15,7 @@ interface ProjectProps {
 }
 
 const BorderedContainer = styled.section`
-	border: 1px solid var(--purple);
+	border: 2px solid var(--purple);
 	border-radius: var(--border-radius);
 
 	display: flex;
@@ -51,7 +51,7 @@ const TabList = styled(List)`
 const Tab = styled.li`
 	flex: 0 0 30%;
 	margin: 0.5rem;
-	border: 1px solid var(--purple);
+	border: 2px solid var(--purple);
 	color: var(--text);
 	text-align: center;
 	border-radius: calc(var(--border-radius) / 2);
@@ -69,6 +69,7 @@ const DescText = styled(ParagraphText)`
 	overflow: hidden;
 	margin: 0 0 1rem 0;
 	text-align: center;
+	opacity: 0.8;
 `;
 
 const ButtonRow = styled.div`
@@ -89,7 +90,8 @@ const ButtonContainer = styled.div`
 `;
 
 const CommitContainer = styled.div`
-	background-color: var(--commitFill);
+	background-color: var(--fg);
+	border: 2px solid var(--purple);
 	display: flex;
 	justify-content: space-evenly;
 	align-items: flex-start;

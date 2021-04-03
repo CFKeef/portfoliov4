@@ -10,7 +10,7 @@ const FooterContainer = styled.footer`
 	justify-content: space-evenly;
 	align-items: flex-start;
 	flex-direction: row;
-	border-top: 1px solid var(--purple);
+	border-top: 2px solid var(--purple);
 
 	@media (min-width: 30em) {
 		width: 75%;

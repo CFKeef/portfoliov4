@@ -30,6 +30,14 @@ const CenteredText = styled(ParagraphText)`
 
 const ButtonContainer = styled.div`
 	width: 80%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 1rem 0;
+
+	button {
+		width: 50%;
+	}
 `;
 
 const IconContainer = styled.div`
@@ -43,6 +51,14 @@ const IconContainer = styled.div`
 		height: 2rem;
 		width: auto;
 		fill: var(--purple);
+
+		path &:hover {
+			background-color: var(--bg);
+			cursor: pointer;
+		}
+		path &:active {
+			opacity: 0.9;
+		}
 	}
 `;
 
