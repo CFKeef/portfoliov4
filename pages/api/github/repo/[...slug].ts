@@ -1,5 +1,4 @@
 import nc from "next-connect";
-import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from "next";
 
 const handler = nc<NextApiRequest, NextApiResponse>().get(async (req, res) => {
