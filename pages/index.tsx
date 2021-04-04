@@ -23,13 +23,14 @@ type ContentfulRes = {
 
 interface Props {
 	data: ContentfulRes;
+	commits: number;
 }
 
-const IndexPage: React.FunctionComponent<Props> = ({ data }) => (
+const IndexPage: React.FunctionComponent<Props> = ({ data, commits }) => (
 	<Layout title="Patryck's Portfolio">
 		<Hero />
 		<Spacer />
-		<Integrations />
+		<Integrations gitHubValue={commits} />
 		<Spacer />
 		<Spotlight
 			project={
@@ -60,6 +61,7 @@ export default IndexPage;
 export const getStaticProps = async () => {
 	const data = await axios.get(process.env.CONTENTFUL_LINK as string);
 	const commits = await getContributionsPastYear();
+
 	return {
 		props: {
 			data: data.data,

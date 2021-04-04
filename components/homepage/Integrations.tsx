@@ -36,7 +36,13 @@ const IntegrationValueText = styled.span`
 	width: 100%;
 `;
 
-const Integrations = (): JSX.Element => {
+interface IntegrationProps {
+	gitHubValue: number;
+}
+
+const Integrations: React.FunctionComponent<IntegrationProps> = ({
+	gitHubValue,
+}): JSX.Element => {
 	/**
 	 * Generates the little content blocks that pull info from somewhere and display
 	 */
@@ -44,8 +50,8 @@ const Integrations = (): JSX.Element => {
 		const integrations: Integration[] = [
 			{
 				id: "github",
-				label: "Github Commits (Past Year)",
-				value: 748,
+				label: "Github Commits",
+				value: gitHubValue,
 				unit: "commits",
 			},
 			{
