@@ -37,4 +37,6 @@ export const List = styled.ul`
 
 export const RowList = styled(List)`
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 `

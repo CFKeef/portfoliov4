@@ -66,7 +66,7 @@ const CTA = () => {
 	return (
 		<CallToAction>
 			<SmallerHeader>Wow you've come a long way</SmallerHeader>
-			<CenteredText>Feel free to contact me</CenteredText>
+			<CenteredText>Feel free to contact me!</CenteredText>
 			<ButtonContainer>
 				<Button>Contact</Button>
 			</ButtonContainer>
