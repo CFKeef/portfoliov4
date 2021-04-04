@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Selected from "../components/homepage/selected";
 import axios from "axios";
 import CTA from "../components/homepage/cta";
+import { getContributionsPastYear } from "../utils/githubAPI";
 
 const Spacer = styled.br`
 	margin: 1rem 0;
@@ -58,9 +59,11 @@ export default IndexPage;
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getStaticProps = async () => {
 	const data = await axios.get(process.env.CONTENTFUL_LINK as string);
+	const commits = await getContributionsPastYear();
 	return {
 		props: {
 			data: data.data,
+			commits: commits,
 		},
 		revalidate: 86400,
 	};

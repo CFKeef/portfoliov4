@@ -6,3 +6,11 @@ export type Proj = {
   deployedLink: string;
   current: boolean;
 }
+
+export interface GitHubContributor {
+  contributions: number;
+}
+
+export interface GitHubRepo {
+  name: string;
+}

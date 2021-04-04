@@ -1,5 +1,5 @@
 import React from "react";
-import { List, SingleColumnContentContainer } from "../general/containers";
+import { RowList, SingleColumnContentContainer } from "../general/containers";
 import { SectionSplitterText } from "../general/text";
 import styled from "styled-components";
 
@@ -16,23 +16,17 @@ const Integration = styled.li`
 	display: flex;
 	justify-content: space-evenly;
 	align-items: flex-start;
+	text-align: center;
 	flex-direction: column;
 	height: 5rem;
-	margin: 1rem 0;
-
-	@media (max-width: 30em) {
-		width: 100%;
-	}
-	@media (min-width: 30em) {
-		width: 40%;
-	}
+	margin: 1rem 0.5rem;
+	flex: 0 0 25%;
 `;
 
 const IntegrationKeyText = styled.span`
 	color: var(--text);
 	font-size: 1rem;
 	width: 100%;
-	margin-left: 0.75rem;
 `;
 
 const IntegrationValueText = styled.span`
@@ -40,7 +34,6 @@ const IntegrationValueText = styled.span`
 	color: var(--text);
 	font-size: 1.5rem;
 	width: 100%;
-	margin-left: 0.75rem;
 `;
 
 const Integrations = (): JSX.Element => {
@@ -82,7 +75,7 @@ const Integrations = (): JSX.Element => {
 	return (
 		<SingleColumnContentContainer>
 			<SectionSplitterText>Activity</SectionSplitterText>
-			<List>{generateIntegrations()}</List>
+			<RowList>{generateIntegrations()}</RowList>
 		</SingleColumnContentContainer>
 	);
 };
