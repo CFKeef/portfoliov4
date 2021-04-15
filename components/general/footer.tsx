@@ -7,18 +7,14 @@ const FooterContainer = styled.footer`
 	width: 100%;
 	margin-top: 1rem;
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: center;
 	align-items: flex-start;
 	flex-direction: row;
 	border-top: 2px solid var(--purple);
-
-	@media (min-width: 30em) {
-		width: 75%;
-	}
 `;
 
 const Column = styled.div`
-	width: 40%;
+	width: 20%;
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;

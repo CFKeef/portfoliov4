@@ -11,9 +11,6 @@ const NavContainer = styled.header`
 	flex-direction: row;
 	width: 100%;
 	margin-top: 1rem;
-	@media (min-width: 30em) {
-		width: 75%;
-	}
 `;
 
 const NavList = styled(List)`

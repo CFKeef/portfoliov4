@@ -18,9 +18,16 @@ const Integration = styled.li`
 	align-items: flex-start;
 	text-align: center;
 	flex-direction: column;
-	height: 5rem;
 	margin: 1rem 0.5rem;
-	flex: 0 0 25%;
+
+	@media (min-width: 30em) {
+		height: 5rem;
+		flex: 0 0 25%;
+	}
+	@media (max-width: 30em) {
+		height: 5rem;
+		width: 100%;
+	}
 `;
 
 const IntegrationKeyText = styled.span`
@@ -36,13 +43,7 @@ const IntegrationValueText = styled.span`
 	width: 100%;
 `;
 
-interface IntegrationProps {
-	gitHubValue: number;
-}
-
-const Integrations: React.FunctionComponent<IntegrationProps> = ({
-	gitHubValue,
-}): JSX.Element => {
+const Integrations: React.FunctionComponent = (): JSX.Element => {
 	/**
 	 * Generates the little content blocks that pull info from somewhere and display
 	 */
@@ -51,7 +52,7 @@ const Integrations: React.FunctionComponent<IntegrationProps> = ({
 			{
 				id: "github",
 				label: "Github Commits",
-				value: gitHubValue,
+				value: 882,
 				unit: "commits",
 			},
 			{
@@ -79,10 +80,10 @@ const Integrations: React.FunctionComponent<IntegrationProps> = ({
 		});
 	};
 	return (
-		<SingleColumnContentContainer>
+		<React.Fragment>
 			<SectionSplitterText>Activity</SectionSplitterText>
 			<RowList>{generateIntegrations()}</RowList>
-		</SingleColumnContentContainer>
+		</React.Fragment>
 	);
 };
 

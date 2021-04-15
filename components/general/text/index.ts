@@ -18,7 +18,7 @@ export const ParagraphText = styled.p`
 
     @media (max-width: 30em) {
         width: 100%; 
-        text-align: left;
+        text-align: center;
     }
 
     @media (min-width: 30em) {

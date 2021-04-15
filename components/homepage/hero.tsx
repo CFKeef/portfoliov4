@@ -12,7 +12,7 @@ const Spacer = styled.br`
 
 const Hero: React.FunctionComponent = () => {
 	return (
-		<SingleColumnContentContainer>
+		<React.Fragment>
 			<Spacer />
 			<SectionSplitterText>Introduction</SectionSplitterText>
 			<HeaderText>Hi, I'm Patryck</HeaderText>
@@ -24,7 +24,7 @@ const Hero: React.FunctionComponent = () => {
 				I'm pursuing a BA in Accounting and Computer Science at{" "}
 				<u>Queens College</u>
 			</ParagraphText>
-		</SingleColumnContentContainer>
+		</React.Fragment>
 	);
 };
 

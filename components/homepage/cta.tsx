@@ -13,10 +13,6 @@ const CallToAction = styled.section`
 	flex-direction: column;
 	width: 100%;
 	border-radius: var(--border-radius);
-
-	@media (min-width: 30em) {
-		width: 75%;
-	}
 `;
 
 const SmallerHeader = styled(HeaderText)`
@@ -29,7 +25,7 @@ const CenteredText = styled(ParagraphText)`
 `;
 
 const ButtonContainer = styled.div`
-	width: 80%;
+	width: 50%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -38,12 +34,18 @@ const ButtonContainer = styled.div`
 	button {
 		width: 50%;
 	}
+
+	@media (min-width: 30em) {
+		width: 50%;
+	}
+	@media (max-width: 30em) {
+		width: 100%;
+	}
 `;
 
 const IconContainer = styled.div`
-	width: 80%;
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: space-between;
 	align-items: center;
 	flex-direction: row;
 	margin: 1rem 0;
@@ -59,6 +61,12 @@ const IconContainer = styled.div`
 		path &:active {
 			opacity: 0.9;
 		}
+	}
+	@media (min-width: 30em) {
+		width: 20%;
+	}
+	@media (max-width: 30em) {
+		width: 50%;
 	}
 `;
 
