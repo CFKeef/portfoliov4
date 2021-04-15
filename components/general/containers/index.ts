@@ -5,8 +5,9 @@ export const ResponsiveContentContainer = styled.div`
 	align-items: center;
 	flex-direction: column;
 	@media (max-width: 30em) {
-		margin: 20px;
-		width: calc(100% - 40px);
+		margin: 0 20px;
+
+		width: calc(100vw - 40px);
 	}
 
 	@media (min-width: 30em) {

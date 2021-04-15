@@ -31,8 +31,8 @@ body {
 }
 
 :root {
-	--bg: var(--white);
-	--fg: var(--black);
+	--bg: #fff;
+	--fg: #000;
 	--fgPurpleDark: #081228;
 	--fgPurpleLighterDark: #191D3A; 
 	--text: #000;

@@ -6,7 +6,7 @@ import ThemeChanger from "./themechanger";
 
 const NavContainer = styled.header`
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 	flex-direction: row;
 	width: 100%;
@@ -33,7 +33,7 @@ const NavEntry = styled.a`
 const Nav = (): JSX.Element => {
 	return (
 		<NavContainer>
-			<ThemeChanger />
+			{/**<ThemeChanger /> */}
 			<NavList>
 				<Link href={"/"} passHref={true}>
 					<NavEntry href={"/"}>Home</NavEntry>

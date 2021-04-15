@@ -4,6 +4,7 @@ import { List } from "./containers";
 import { ParagraphText, SectionSplitterText } from "./text";
 import { Button } from "./input/index";
 import Link from "next/link";
+import { Anchor } from "./general";
 
 interface ProjectProps {
 	name: string;
@@ -110,11 +111,6 @@ const CommitText = styled(ParagraphText)`
 	font-size: 1rem;
 	font-weight: 600;
 	text-align: left;
-	color: var(--buttonText);
-`;
-
-const Anchor = styled.a`
-	text-decoration: none;
 	color: var(--buttonText);
 `;
 
