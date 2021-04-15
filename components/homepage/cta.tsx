@@ -5,7 +5,6 @@ import styled from "styled-components";
 import { Button } from "../general/input";
 import { HeaderText, ParagraphText } from "../general/text";
 import { FaGithubSquare, FaLinkedin } from "react-icons/fa";
-import { useRouter } from "next/router";
 import { Anchor } from "../general/general";
 
 const CallToAction = styled.section`
