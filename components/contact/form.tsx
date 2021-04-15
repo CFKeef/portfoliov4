@@ -26,11 +26,7 @@ const StyledForm = styled.form`
 `;
 
 const Form = () => {
-	const {
-		register,
-		handleSubmit,
-		formState: { errors },
-	} = useForm<FormData>();
+	const { register, handleSubmit } = useForm<FormData>();
 	const onSubmit = (data: FormData) => console.log(data);
 
 	return (
