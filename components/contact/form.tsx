@@ -25,7 +25,7 @@ const StyledForm = styled.form`
 	}
 `;
 
-const Form = () => {
+const Form = (): JSX.Element => {
 	const { register, handleSubmit } = useForm<FormData>();
 	const onSubmit = (data: FormData) => console.log(data);
 
