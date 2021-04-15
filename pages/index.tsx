@@ -1,11 +1,8 @@
 import Hero from "../components/homepage/hero";
 import Layout from "../components/general/Layout";
 import Integrations from "../components/homepage/Integrations";
-import Spotlight from "../components/homepage/spotlight";
-import Selected from "../components/homepage/selected";
 import axios from "axios";
 import CTA from "../components/homepage/cta";
-import { getContributionsPastYear } from "../utils/githubAPI";
 
 type ContentfulRes = {
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -21,7 +18,7 @@ interface Props {
 	commits: number;
 }
 
-const IndexPage: React.FunctionComponent<Props> = ({ data }) => (
+const IndexPage: React.FunctionComponent<Props> = () => (
 	<Layout title="Patryck's Portfolio">
 		<Hero />
 		<Integrations />

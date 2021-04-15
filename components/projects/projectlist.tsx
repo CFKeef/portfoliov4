@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import ProjectSelect from "./select";
 import styled from "styled-components";
 import { SectionSplitterText } from "../general/text";
-import { useQuery } from "react-query";
 
 import Card from "./card";
 

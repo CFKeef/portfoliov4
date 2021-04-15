@@ -2,7 +2,6 @@ import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 import { List } from "./containers";
-import ThemeChanger from "./themechanger";
 
 const NavContainer = styled.header`
 	display: flex;
@@ -33,7 +32,6 @@ const NavEntry = styled.a`
 const Nav = (): JSX.Element => {
 	return (
 		<NavContainer>
-			{/**<ThemeChanger /> */}
 			<NavList>
 				<Link href={"/"} passHref={true}>
 					<NavEntry href={"/"}>Home</NavEntry>

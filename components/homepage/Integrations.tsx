@@ -1,5 +1,5 @@
 import React from "react";
-import { RowList, SingleColumnContentContainer } from "../general/containers";
+import { RowList } from "../general/containers";
 import { SectionSplitterText } from "../general/text";
 import styled from "styled-components";
 

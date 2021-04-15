@@ -5,7 +5,6 @@ import {
 	HeaderText,
 	ParagraphText,
 } from "../../components/general/text";
-import styled from "styled-components";
 import ProjectList from "../../components/projects/projectlist";
 
 const Projects: React.FunctionComponent = (): JSX.Element => {

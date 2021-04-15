@@ -4,7 +4,6 @@ import {
 	ParagraphText,
 	SectionSplitterText,
 } from "../general/text/index";
-import { SingleColumnContentContainer } from "../general/containers/index";
 import styled from "styled-components";
 const Spacer = styled.br`
 	margin-top: 1rem;

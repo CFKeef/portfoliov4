@@ -16,7 +16,7 @@ const CardTitle = styled.h4`
 	margin: 1rem 0;
 `;
 
-const Card = () => {
+const Card = (): JSX.Element => {
 	return (
 		<CardContainer>
 			<img
