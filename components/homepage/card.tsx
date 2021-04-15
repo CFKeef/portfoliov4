@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface CardProps {
 	name: string;
@@ -7,12 +7,11 @@ interface CardProps {
 	deployedLink?: string;
 	repoLink?: string;
 	showLastCommit?: boolean;
-    imgUrl?:string;
+	imgUrl?: string;
 }
 
+const Card: React.FunctionComponent<CardProps> = () => {
+	return <>dsafsadfdsa</>;
+};
 
-const Card:React.FunctionComponent<CardProps> = ({name,desc,tech,deployedLink, repoLink, showLastCommit, imgUrl}) => {
-    return (
-        
-    )
-}
+export default Card;
