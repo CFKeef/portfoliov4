@@ -27,6 +27,7 @@ const CallToAction = styled.section`
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
+		padding: 0 20px;
 	}
 `;
 
@@ -64,6 +65,7 @@ const IconContainer = styled.div`
 	align-items: center;
 	flex-direction: row;
 	margin: 1rem 0;
+	justify-content: space-around;
 	svg {
 		height: 2rem;
 		width: auto;
@@ -79,10 +81,9 @@ const IconContainer = styled.div`
 	}
 	@media (min-width: 30em) {
 		width: 20%;
-		justify-content: space-around;
 	}
 	@media (max-width: 30em) {
-		width: 50%;
+		width: 100%;
 	}
 `;
 
@@ -92,7 +93,7 @@ const ContentContainer = styled.div`
 	align-items: center;
 	flex-direction: column;
 	@media (min-width: 30em) {
-		width: 50%;
+		flex: 1 1 50%;
 	}
 	@media (max-width: 30em) {
 		width: 100%;
@@ -105,7 +106,7 @@ const ActionContainer = styled.div`
 	align-items: center;
 
 	@media (min-width: 30em) {
-		width: 50%;
+		flex: 1 1 50%;
 		flex-direction: column;
 
 		p {
