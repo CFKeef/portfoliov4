@@ -1,81 +1,45 @@
 import React from "react";
 import { RowList } from "../general/containers";
 import { SectionSplitterText } from "../general/text";
-import styled from "styled-components";
+import { QueryFunction } from "react-query";
+import { fetchGithubCommits } from "../../utils/integrations";
+import IntegrationCard from "./integrationcard";
 
-type Integration = {
+export type IntegrationData = {
 	id: string;
 	label: string;
-	value: number;
 	unit: string;
+	queryFn: QueryFunction;
 };
-
-const Integration = styled.li`
-	border-radius: var(--border-radius);
-	border: 1px solid var(--purple);
-	display: flex;
-	justify-content: space-evenly;
-	align-items: flex-start;
-	text-align: center;
-	flex-direction: column;
-	margin: 1rem 0.5rem;
-
-	@media (min-width: 30em) {
-		height: 5rem;
-		flex: 0 0 25%;
-	}
-	@media (max-width: 30em) {
-		height: 5rem;
-		width: 100%;
-	}
-`;
-
-const IntegrationKeyText = styled.span`
-	color: var(--text);
-	font-size: 1rem;
-	width: 100%;
-`;
-
-const IntegrationValueText = styled.span`
-	font-weight: 600;
-	color: var(--text);
-	font-size: 1.5rem;
-	width: 100%;
-`;
 
 const Integrations: React.FunctionComponent = (): JSX.Element => {
 	/**
 	 * Generates the little content blocks that pull info from somewhere and display
 	 */
 	const generateIntegrations = () => {
-		const integrations: Integration[] = [
+		const integrations: IntegrationData[] = [
 			{
 				id: "github",
 				label: "Github Commits",
-				value: 882,
 				unit: "commits",
+				queryFn: fetchGithubCommits,
 			},
 			{
 				id: "caffeine",
 				label: "Milligrams of Caffeine Consumed",
-				value: 370,
 				unit: "mg",
+				queryFn: fetchGithubCommits,
 			},
 			{
 				id: "projects",
 				label: "Published Projects",
-				value: 5,
 				unit: "deployed",
+				queryFn: fetchGithubCommits,
 			},
 		];
-		return integrations.map((connection: Integration) => {
+		return integrations.map((connection: IntegrationData) => {
 			return (
-				<Integration key={connection.id}>
-					<IntegrationKeyText>{connection.label}</IntegrationKeyText>
-					<IntegrationValueText>
-						{connection.value}
-					</IntegrationValueText>
-				</Integration>
+				<IntegrationCard key={connection.id} connection={connection} />
 			);
 		});
 	};
