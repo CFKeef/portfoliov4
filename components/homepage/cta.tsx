@@ -135,7 +135,7 @@ const CTA = () => {
 				<ButtonContainer>
 					<Button>
 						<Link href={"/contact"} passHref={true}>
-							<Anchor href={"/contact"}>Contact</Anchor>
+							<Anchor href={"/contact"}>Break the Ice</Anchor>
 						</Link>
 					</Button>
 				</ButtonContainer>
