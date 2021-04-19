@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { SectionSplitterText } from "../general/text";
 
 import Card from "./card";
+import Project from "../general/projectcard/withcontent";
 
 const Container = styled.section`
 	width: 100%;
@@ -57,18 +58,7 @@ const ProjectList = (): JSX.Element => {
 			</ListBar>
 			<SectionSplitterText>Results</SectionSplitterText>
 			<ListContainer>
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-				<Card />
+				<Project />
 			</ListContainer>
 		</Container>
 	);
