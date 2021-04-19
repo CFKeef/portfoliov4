@@ -3,6 +3,7 @@ import Layout from "../components/general/Layout";
 import Integrations from "../components/homepage/Integrations";
 import axios from "axios";
 import CTA from "../components/homepage/cta";
+import { fetchProjects } from "../utils/integrations";
 
 type ContentfulRes = {
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -43,15 +44,3 @@ const IndexPage: React.FunctionComponent<Props> = () => (
 );
 
 export default IndexPage;
-
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export const getStaticProps = async () => {
-	const data = await axios.get(process.env.CONTENTFUL_LINK as string);
-
-	return {
-		props: {
-			data: data.data,
-		},
-		revalidate: 86400,
-	};
-};

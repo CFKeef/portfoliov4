@@ -2,7 +2,10 @@ import React from "react";
 import { RowList } from "../general/containers";
 import { SectionSplitterText } from "../general/text";
 import { QueryFunction } from "react-query";
-import { fetchGithubCommits } from "../../utils/integrations";
+import {
+	fetchGithubCommits,
+	fetchProjectStats,
+} from "../../utils/integrations";
 import IntegrationCard from "./integrationcard";
 
 export type IntegrationData = {
@@ -34,7 +37,7 @@ const Integrations: React.FunctionComponent = (): JSX.Element => {
 				id: "projects",
 				label: "Published Projects",
 				unit: "deployed",
-				queryFn: fetchGithubCommits,
+				queryFn: fetchProjectStats,
 			},
 		];
 		return integrations.map((connection: IntegrationData) => {
