@@ -1,13 +1,13 @@
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
-import { commitResponse, Fields } from "../../../interfaces";
+import { Commit, commitResponse, Fields } from "../../../interfaces";
 import TechIcon from "./TechIcon";
 import GithubLogo from "../../../public/images/github-logo.svg";
 
 const ProjectContainer = styled.li`
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	flex-direction: column;
 
@@ -15,8 +15,9 @@ const ProjectContainer = styled.li`
 	border-radius: var(--border-radius);
 
 	@media (min-width: 30em) {
-		flex: 0 0 45%;
-		height: 33rem;
+		flex: 0 0 48%;
+		min-height: 36rem;
+		margin: 1.5rem 0;
 	}
 `;
 
@@ -127,6 +128,7 @@ const CommitBlock = styled.div`
 		margin: 0.5rem;
 		color: white;
 		opacity: 0.8;
+		width: 100%;
 	}
 `;
 
@@ -184,20 +186,32 @@ const ImageContainer = styled.div`
 
 interface ProjectProps {
 	data: Fields;
-	commit: commitResponse.Commit;
+	commit: Commit;
 }
 
 const Project: React.FunctionComponent<ProjectProps> = ({
 	data,
 	commit,
 }): JSX.Element => {
+	const handleLinkGen = () => {
+		console.log(data.deployedLink);
+		if (data.deployedLink) {
+			return (
+				<Link href={data.deployedLink} passHref={true}>
+					<Anchor draggable={false} href={data.deployedLink}>
+						Visit
+					</Anchor>
+				</Link>
+			);
+		}
+	};
+
 	const generateTechTabs = () => {
 		return (
 			<TabGroup>
-				<TechIcon techName={"Typescript"} />
-				<TechIcon techName={"React"} />
-				<TechIcon techName={"NextJS"} />
-				<TechIcon techName={"Postgres"} />
+				{data.tech.map((tech) => (
+					<TechIcon techName={tech} key={data.title + tech} />
+				))}
 			</TabGroup>
 		);
 	};
@@ -208,25 +222,17 @@ const Project: React.FunctionComponent<ProjectProps> = ({
 				<ImageContainer>
 					<img
 						draggable={false}
-						src={
-							"https://cdn.discordapp.com/attachments/140312652873203713/834066172616900638/CoursorBanner.svg"
-						}
-						alt="Coursor Banner Picture"
+						src={data.imageLink}
+						alt={data.title + " Project Image"}
 					/>
 				</ImageContainer>
 				<TitleBar>
-					<h4>Coursor</h4>
-					<Link href={"/"} passHref={true}>
-						<Anchor draggable={false} href={"/"}>
-							Visit
-						</Anchor>
-					</Link>
+					<h4>{data.title}</h4>
+					{handleLinkGen()}
 				</TitleBar>
 				<Section>
 					<SectionTitle>What It Is</SectionTitle>
-					<SectionBody>
-						Course management dashboard for students and professors
-					</SectionBody>
+					<SectionBody>{data.description}</SectionBody>
 				</Section>
 				<Section>
 					<SectionTitle>What I Used</SectionTitle>
@@ -242,21 +248,21 @@ const Project: React.FunctionComponent<ProjectProps> = ({
 						Last Commit
 					</SectionTitle>
 					<CommitBlock>
-						<p>
-							Course management dashboard for students and
-							professors
-						</p>
+						<p>{commit.message}</p>
 					</CommitBlock>
 				</Section>
 				<GithubSection>
 					<Container style={{ width: "60%" }}>
 						<img draggable={false} src={GithubLogo} />
-						<Link href="/">
-							<a draggable={false}>CFKeef/Coursor</a>
+						<Link href={"github.com/CFKeef/" + data.repoName}>
+							<a draggable={false}>{"CFKeef/" + data.repoName}</a>
 						</Link>
 					</Container>
 					<Container style={{ width: "40%" }}>
-						<TimeText>Last updated 3d ago</TimeText>
+						<TimeText>
+							Updated{" "}
+							{new Date(commit.commitPosted).toLocaleDateString()}
+						</TimeText>
 					</Container>
 				</GithubSection>
 			</PositionContainer>

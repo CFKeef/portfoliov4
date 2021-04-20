@@ -9,6 +9,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { Hydrate } from "react-query/hydration";
 import { reset } from "styled-modern-css-reset";
 import { fonts } from "../utils/fonts";
+import { ReactQueryDevtools } from "react-query-devtools";
 
 const GlobalStyle = createGlobalStyle`
 ${reset}
@@ -75,16 +76,15 @@ function MyApp({ Component, pageProps }: AppProps) {
 		queryClientRef.current = new QueryClient();
 	}
 	return (
-		<>
+		<ThemeProvider defaultTheme="dark">
+			<GlobalStyle />
 			<QueryClientProvider client={queryClientRef.current}>
 				<Hydrate state={pageProps.dehydratedState}>
-					<GlobalStyle />
-					<ThemeProvider defaultTheme="dark">
-						<Component {...pageProps} />
-					</ThemeProvider>
+					<Component {...pageProps} />
 				</Hydrate>
+				<ReactQueryDevtools initialIsOpen={false} />
 			</QueryClientProvider>
-		</>
+		</ThemeProvider>
 	);
 }
 

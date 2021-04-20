@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Fields } from "../interfaces";
+import { CardData } from "../interfaces";
 
 declare namespace github {
 	export interface response {
@@ -27,10 +27,10 @@ export const fetchProjectStats = async (): Promise<number | null> => {
 		});
 };
 
-export const fetchProjects = async (): Promise<Fields[] | null> => {
+export const fetchProjects = async (): Promise<CardData | null> => {
 	return await axios
 		.get("https://ceefend.herokuapp.com/api/project")
-		.then((res) => res.data.projects)
+		.then((res) => res.data)
 		.catch((err) => {
 			console.error(err);
 			return null;

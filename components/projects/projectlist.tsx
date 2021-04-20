@@ -1,10 +1,15 @@
 import React from "react";
+import { GetStaticProps } from "next";
 import ProjectSelect from "./select";
 import styled from "styled-components";
 import { SectionSplitterText } from "../general/text";
 
 import Card from "./card";
 import Project from "../general/projectcard/withcontent";
+import { useQuery, QueryClient } from "react-query";
+import { dehydrate } from "react-query/hydration";
+
+import { fetchProjects } from "../../utils/integrations";
 
 const Container = styled.section`
 	width: 100%;
@@ -50,18 +55,35 @@ const options = [
 	{ value: "redux", label: "Redux" },
 ];
 
-const ProjectList = (): JSX.Element => {
+const ProjectList = ({ projects }): JSX.Element => {
+	const { data } = useQuery("cardData", fetchProjects);
+
+	const generateProjectCards = () => {
+		return data?.projects?.map((project, index) => {
+			return <Project commit={data.commits[index]} data={project} />;
+		});
+	};
+
 	return (
 		<Container>
 			<ListBar>
 				<ProjectSelect data={options} />
 			</ListBar>
 			<SectionSplitterText>Results</SectionSplitterText>
-			<ListContainer>
-				<Project />
-			</ListContainer>
+			<ListContainer>{data && generateProjectCards()}</ListContainer>
 		</Container>
 	);
 };
 
+export const getStaticProps: GetStaticProps = async () => {
+	const queryClient = new QueryClient();
+
+	await queryClient.prefetchQuery("cardData", () => fetchProjects());
+
+	return {
+		props: {
+			dehydratedState: dehydrate(queryClient),
+		},
+	};
+};
 export default ProjectList;

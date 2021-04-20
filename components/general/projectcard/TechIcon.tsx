@@ -8,9 +8,11 @@ import PostgresIcon from "../../../public/images/file-type-pgsql.svg";
 import NextIcon from "../../../public/images/nextjs-icon.svg";
 
 const IconContainer = styled.li`
+	padding-bottom: 0.5rem;
 	img {
 		height: 1.5rem;
 		width: 1.5rem;
+
 		border-radius: calc(var(--border-radius) / 3);
 	}
 `;
