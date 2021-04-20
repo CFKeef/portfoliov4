@@ -23,22 +23,7 @@ const IndexPage: React.FunctionComponent<Props> = () => (
 	<Layout title="Patryck's Portfolio">
 		<Hero />
 		<Integrations />
-		{/* <Spotlight
-			project={
-				data.items.filter((element: { fields: { current: never } }) => {
-					{
-						return element.fields.current;
-					}
-				})[0].fields
-			}
-		/>
-		<Selected
-			projects={data.items.filter(
-				(element: { fields: { current: never } }) => {
-					return !element.fields.current;
-				}
-			)}
-		/> */}
+
 		<CTA />
 	</Layout>
 );

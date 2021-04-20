@@ -6,7 +6,7 @@ import { IntegrationData } from "./Integrations";
 
 const Integration = styled.li`
 	border-radius: var(--border-radius);
-	border: 1px solid var(--purple);
+	border: 2px solid var(--purple);
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;

@@ -14,6 +14,7 @@
     "next-compose-plugins": "^2.2.1",
     "next-connect": "^0.10.1",
     "next-fonts": "^1.5.1",
+    "next-images": "^1.7.0",
     "next-themes": "^0.0.14",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -21,6 +22,7 @@
     "react-icons": "^4.2.0",
     "react-query": "^3.13.3",
     "react-select": "^4.3.0",
+    "react-tooltip": "^4.2.17",
     "styled-components": "^5.2.3",
     "styled-modern-css-reset": "^1.0.4"
   },

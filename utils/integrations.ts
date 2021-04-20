@@ -36,3 +36,15 @@ export const fetchProjects = async (): Promise<Fields[] | null> => {
 			return null;
 		});
 };
+
+// This is a really gigantic json
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export const fetchLastCommitForRepo = async (repo: string) => {
+	return await axios
+		.get("https://ceefend.herokuapp.com/api/github" + repo)
+		.then((res) => res.data.commit)
+		.catch((err) => {
+			console.error(err);
+			return null;
+		});
+};
