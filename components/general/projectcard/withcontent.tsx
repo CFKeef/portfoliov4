@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
-import { Commit, commitResponse, Fields } from "../../../interfaces";
+import { Commit, Fields } from "../../../interfaces";
 import TechIcon from "./TechIcon";
 import GithubLogo from "../../../public/images/github-logo.svg";
 

@@ -3,8 +3,6 @@ import { GetStaticProps } from "next";
 import ProjectSelect from "./select";
 import styled from "styled-components";
 import { SectionSplitterText } from "../general/text";
-
-import Card from "./card";
 import Project from "../general/projectcard/withcontent";
 import { useQuery, QueryClient } from "react-query";
 import { dehydrate } from "react-query/hydration";
@@ -55,7 +53,7 @@ const options = [
 	{ value: "redux", label: "Redux" },
 ];
 
-const ProjectList = ({ projects }): JSX.Element => {
+const ProjectList = (): JSX.Element => {
 	const { data } = useQuery("cardData", fetchProjects);
 
 	const generateProjectCards = () => {
