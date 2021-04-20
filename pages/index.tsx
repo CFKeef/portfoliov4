@@ -1,7 +1,6 @@
 import Hero from "../components/homepage/hero";
 import Layout from "../components/general/Layout";
 import Integrations from "../components/homepage/Integrations";
-import axios from "axios";
 import CTA from "../components/homepage/cta";
 
 type ContentfulRes = {
