@@ -184,6 +184,16 @@ const ImageContainer = styled.div`
 	}
 `;
 
+const GitAnchor = styled.a`
+	&:hover {
+		cursor: pointer;
+	}
+`;
+
+const openLinkInNewTab = (url: string) => {
+	window.open(url, "_blank");
+};
+
 interface ProjectProps {
 	data: Fields;
 	commit: Commit;
@@ -197,11 +207,12 @@ const Project: React.FunctionComponent<ProjectProps> = ({
 		console.log(data.deployedLink);
 		if (data.deployedLink) {
 			return (
-				<Link href={data.deployedLink} passHref={true}>
-					<Anchor draggable={false} href={data.deployedLink}>
-						Visit
-					</Anchor>
-				</Link>
+				<Anchor
+					draggable={false}
+					onClick={() => openLinkInNewTab(data.deployedLink)}
+				>
+					Visit
+				</Anchor>
 			);
 		}
 	};
@@ -254,9 +265,12 @@ const Project: React.FunctionComponent<ProjectProps> = ({
 				<GithubSection>
 					<Container style={{ width: "60%" }}>
 						<img draggable={false} src={GithubLogo} />
-						<Link href={"github.com/CFKeef/" + data.repoName}>
-							<a draggable={false}>{"CFKeef/" + data.repoName}</a>
-						</Link>
+						<GitAnchor
+							draggable={false}
+							onClick={() => openLinkInNewTab(data.repoLink)}
+						>
+							{"CFKeef/" + data.repoName}
+						</GitAnchor>
 					</Container>
 					<Container style={{ width: "40%" }}>
 						<TimeText>

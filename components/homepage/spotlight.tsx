@@ -20,14 +20,7 @@ const Spotlight: React.FunctionComponent<SpotLightProps> = ({
 		<SingleColumnContentContainer>
 			<SectionSplitterText>Current Project</SectionSplitterText>
 			<Spacer />
-			<Project
-				name={project.title}
-				desc={project.desc}
-				tech={project.tech}
-				deployedLink={project.deployedLink}
-				repoLink={project.gitLink}
-				showLastCommit={true}
-			/>
+			
 		</SingleColumnContentContainer>
 	);
 };

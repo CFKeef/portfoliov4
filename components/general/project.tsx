@@ -143,6 +143,10 @@ const Project: React.FunctionComponent<ProjectProps> = ({
 		);
 	};
 
+	const openLinkInNewTab = (url: string) => {
+		window.open(url, "_blank");
+	};
+
 	return (
 		<BorderedContainer>
 			<ProjectName>{name}</ProjectName>
@@ -156,18 +160,20 @@ const Project: React.FunctionComponent<ProjectProps> = ({
 				{deployedLink && (
 					<ButtonContainer>
 						<Button>
-							<Link href={deployedLink} passHref={true}>
-								<Anchor href={deployedLink}>Visit</Anchor>
-							</Link>
+							<Anchor
+								onClick={() => openLinkInNewTab(deployedLink)}
+							>
+								Visit
+							</Anchor>
 						</Button>
 					</ButtonContainer>
 				)}
 				{repoLink && (
 					<ButtonContainer>
 						<Button>
-							<Link href={repoLink} passHref={true}>
-								<Anchor href={repoLink}>Repo</Anchor>
-							</Link>
+							<Anchor onClick={() => openLinkInNewTab(repoLink)}>
+								Repo
+							</Anchor>
 						</Button>
 					</ButtonContainer>
 				)}
