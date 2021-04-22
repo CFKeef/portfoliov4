@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { GetStaticProps } from "next";
 import ProjectSelect from "./select";
 import styled from "styled-components";
@@ -7,7 +7,10 @@ import Project from "../general/projectcard/withcontent";
 import { useQuery, QueryClient } from "react-query";
 import { dehydrate } from "react-query/hydration";
 
-import { fetchProjects } from "../../utils/integrations";
+import {
+	fetchPaginatedProjects,
+	fetchProjects,
+} from "../../utils/integrations";
 
 const Container = styled.section`
 	width: 100%;
@@ -54,11 +57,17 @@ const options = [
 ];
 
 const ProjectList = (): JSX.Element => {
-	const { data } = useQuery("cardData", fetchProjects);
+	const [page, setPage] = useState(1);
+
+	const fetchProjects = async (page: number) =>
+		await fetchPaginatedProjects(page);
+	const { data } = useQuery(["cardData", page], () => fetchProjects(page));
 
 	const generateProjectCards = () => {
-		return data?.projects?.map((project, index) => {
-			return <Project commit={data.commits[index]} data={project} />;
+		return data?.projects?.items?.map((project, index) => {
+			return (
+				<Project commit={data.commits.items[index]} data={project} />
+			);
 		});
 	};
 

@@ -61,3 +61,26 @@ export interface CardData {
 	projects: Fields[];
 	commits: Commit[];
 }
+
+export namespace paginatedProjects {
+	export interface RootObject {
+		projects: Projects;
+		commits: Commits;
+	}
+
+	interface Commits {
+		previousPage?: number | null;
+		nextPage: number;
+		total: number;
+		totalPages: number;
+		items: Commit[];
+	}
+
+	interface Projects {
+		previousPage?: number | null;
+		nextPage: number;
+		total: number;
+		totalPages: number;
+		items: Fields[];
+	}
+}
