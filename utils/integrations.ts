@@ -37,7 +37,9 @@ export const fetchProjects = async (): Promise<CardData | null> => {
 		});
 };
 
-export const fetchPaginatedProjects = async (page) => {
+export const fetchPaginatedProjects = async (
+	page: number
+): Promise<paginatedProjects.RootObject | null> => {
 	return await axios
 		.get<paginatedProjects.RootObject>(
 			`https://ceefend.herokuapp.com/api/project/items`,

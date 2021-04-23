@@ -11,6 +11,7 @@ import {
 	fetchPaginatedProjects,
 	fetchProjects,
 } from "../../utils/integrations";
+import LoadingCard from "../general/projectcard/skeleton";
 
 const Container = styled.section`
 	width: 100%;
@@ -57,16 +58,39 @@ const options = [
 ];
 
 const ProjectList = (): JSX.Element => {
+	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+	// @ts-ignore
 	const [page, setPage] = useState(1);
 
 	const fetchProjects = async (page: number) =>
 		await fetchPaginatedProjects(page);
-	const { data } = useQuery(["cardData", page], () => fetchProjects(page));
+	const { isLoading, data } = useQuery(["cardData", page], () =>
+		fetchProjects(page)
+	);
+
+	const handleRender = () => {
+		if (isLoading)
+			return (
+				<React.Fragment>
+					<LoadingCard />
+					<LoadingCard />
+					<LoadingCard />
+					<LoadingCard />
+				</React.Fragment>
+			);
+		else if (data) {
+			return generateProjectCards();
+		}
+	};
 
 	const generateProjectCards = () => {
 		return data?.projects?.items?.map((project, index) => {
 			return (
-				<Project commit={data.commits.items[index]} data={project} />
+				<Project
+					key={project.repoName}
+					commit={data.commits.items[index]}
+					data={project}
+				/>
 			);
 		});
 	};
@@ -77,7 +101,7 @@ const ProjectList = (): JSX.Element => {
 				<ProjectSelect data={options} />
 			</ListBar>
 			<SectionSplitterText>Results</SectionSplitterText>
-			<ListContainer>{data && generateProjectCards()}</ListContainer>
+			<ListContainer>{handleRender()}</ListContainer>
 		</Container>
 	);
 };
