@@ -38,12 +38,13 @@ export const TitleBar = styled.div`
 	width: 100%;
 	margin: 0.5rem 0 0 0;
 
-	h4 {
+	h2 {
 		font-size: 1.6rem;
 		text-align: left;
 		display: inline;
 		color: white;
 		width: 75%;
+		margin: 0;
 	}
 `;
 export const Anchor = styled.a`
@@ -168,9 +169,7 @@ export const TimeText = styled.span`
 	font-size: 14px;
 `;
 export const ImageContainer = styled.div`
-	@media (min-width: 30em) {
-		height: 11rem;
-	}
+	height: 11rem;
 	width: 100%;
 	img {
 		height: auto;

@@ -64,7 +64,7 @@ const Project: React.FunctionComponent<ProjectProps> = ({
 					/>
 				</ImageContainer>
 				<TitleBar>
-					<h4>{data.title}</h4>
+					<h2>{data.title}</h2>
 					{handleLinkGen()}
 				</TitleBar>
 				<Section>

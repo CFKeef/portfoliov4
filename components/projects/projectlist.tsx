@@ -156,8 +156,7 @@ const ProjectList = (): JSX.Element => {
 
 		return arr.map((num) => {
 			const selected: boolean = num == page;
-			console.log(selected);
-			console.log(num, page);
+
 			return (
 				<Control selected={selected} key={"page" + num + "control"}>
 					<button onClick={() => setPage(num)}>{num}</button>
