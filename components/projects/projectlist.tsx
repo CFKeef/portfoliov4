@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { GetStaticProps } from "next";
 import ProjectSelect from "./select";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { SectionSplitterText } from "../general/text";
 import Project from "../general/projectcard/withcontent";
 import { useQuery, QueryClient } from "react-query";
@@ -34,16 +34,83 @@ const ListBar = styled.div`
 const ListContainer = styled.ul`
 	width: 100%;
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
 
 	@media (max-width: 30em) {
 		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
 	}
 
 	@media (min-width: 30em) {
+		justify-content: space-between;
+		align-items: flex-start;
 		flex-direction: row;
 		flex-wrap: wrap;
+	}
+`;
+
+const ListControlsContainer = styled.div`
+	width: 100%;
+	margin: 1rem 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	ul {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		flex-direction: row;
+
+		li {
+			margin: 0 0.2rem;
+		}
+	}
+`;
+
+const activeButton = css`
+	&:hover {
+		cursor: not-allowed;
+	}
+`;
+
+const inactiveButton = css`
+	&:hover {
+		border: 2px solid var(--purple);
+		color: var(--purple);
+		cursor: pointer;
+	}
+	&:active {
+		opacity: 0.9;
+	}
+`;
+const Control = styled.li<{ selected: boolean }>`
+	height: 2.5rem;
+	width: 2.5rem;
+	border-radius: calc(var(--border-radius) / 2);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	button {
+		height: 100%;
+		width: 100%;
+		background-color: ${({ selected }) =>
+			selected ? "var(--purple)" : "var(--bg)"};
+		border: ${({ selected }) =>
+			selected
+				? " 2px solid var(--purple)"
+				: " 2px solid rgba(255, 255, 255, 0.4)"};
+		font-weight: bold;
+		border-radius: calc(var(--border-radius) / 2);
+		transition: background-color 0.15s ease;
+		color: ${({ selected }) =>
+			selected ? "var(--buttonText)" : "rgba(255, 255, 255, 0.4)"};
+
+		${({ selected }) => (selected ? activeButton : inactiveButton)}
 	}
 `;
 
@@ -64,12 +131,12 @@ const ProjectList = (): JSX.Element => {
 
 	const fetchProjects = async (page: number) =>
 		await fetchPaginatedProjects(page);
-	const { isLoading, data } = useQuery(["cardData", page], () =>
+	const { isFetching, isLoading, data } = useQuery(["cardData", page], () =>
 		fetchProjects(page)
 	);
 
 	const handleRender = () => {
-		if (isLoading)
+		if (isLoading || isFetching)
 			return (
 				<React.Fragment>
 					<LoadingCard />
@@ -81,6 +148,22 @@ const ProjectList = (): JSX.Element => {
 		else if (data) {
 			return generateProjectCards();
 		}
+	};
+
+	const generateControls = () => {
+		const count = data?.projects.totalPages;
+		const arr = Array.from(Array(count), (_e, i) => i + 1);
+
+		return arr.map((num) => {
+			const selected: boolean = num == page;
+			console.log(selected);
+			console.log(num, page);
+			return (
+				<Control selected={selected} key={"page" + num + "control"}>
+					<button onClick={() => setPage(num)}>{num}</button>
+				</Control>
+			);
+		});
 	};
 
 	const generateProjectCards = () => {
@@ -100,8 +183,15 @@ const ProjectList = (): JSX.Element => {
 			<ListBar>
 				<ProjectSelect data={options} />
 			</ListBar>
-			<SectionSplitterText>Results</SectionSplitterText>
+			<SectionSplitterText>
+				{isLoading ? "Loading" : "Results"}
+			</SectionSplitterText>
 			<ListContainer>{handleRender()}</ListContainer>
+			{data && (
+				<ListControlsContainer>
+					<ul>{generateControls()}</ul>
+				</ListControlsContainer>
+			)}
 		</Container>
 	);
 };
