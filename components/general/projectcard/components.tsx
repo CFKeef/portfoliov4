@@ -14,6 +14,12 @@ export const ProjectContainer = styled.li`
 		min-height: 36rem;
 		margin: 1.5rem 0;
 	}
+
+	@media (max-width: 30em) {
+		height: 36rem;
+		width: 100%;
+		margin: 1rem 0;
+	}
 `;
 export const PositionContainer = styled.div`
 	display: flex;
@@ -162,7 +168,9 @@ export const TimeText = styled.span`
 	font-size: 14px;
 `;
 export const ImageContainer = styled.div`
-	height: 11rem;
+	@media (min-width: 30em) {
+		height: 11rem;
+	}
 	width: 100%;
 	img {
 		height: auto;
@@ -210,6 +218,7 @@ export const Skeleton = styled(SkeletonPulse)`
 	width: 5.5em;
 	border-radius: calc(var(--border-radius) / 2);
 	height: 100%;
+
 	&::before {
 		content: "\00a0";
 	}
