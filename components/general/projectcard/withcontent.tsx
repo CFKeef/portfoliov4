@@ -30,7 +30,6 @@ const Project: React.FunctionComponent<ProjectProps> = ({
 	commit,
 }): JSX.Element => {
 	const handleLinkGen = () => {
-		console.log(data.deployedLink);
 		if (data.deployedLink) {
 			return (
 				<Anchor
