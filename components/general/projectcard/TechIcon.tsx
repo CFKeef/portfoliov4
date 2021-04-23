@@ -7,7 +7,7 @@ import ReactIcon from "../../../public/images/bxl-react.svg";
 import PostgresIcon from "../../../public/images/file-type-pgsql.svg";
 import NextIcon from "../../../public/images/nextjs-icon.svg";
 import ElectronIcon from "../../../public/images/electron.svg";
-import ExpoIcon from "../../../public/images/expo.svg";
+import ExpoIcon from "../../../public/images/Expo.svg";
 import FastifyIcon from "../../../public/images/fastify.svg";
 import JavascriptIcon from "../../../public/images/javascript.svg";
 import MongoIcon from "../../../public/images/mongodb-icon.svg";
