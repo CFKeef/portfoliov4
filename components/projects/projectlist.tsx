@@ -132,8 +132,7 @@ const ProjectList = (): JSX.Element => {
 	// @ts-ignore
 	const [page, setPage] = useState(1);
 	const [isFiltered, setIsFiltered] = useState(false);
-	const [filteredData, setFilteredData] = useState();
-	const [selectedFilter, setSelectedFilter] = useState();
+	const [selectedFilter, setSelectedFilter] = useState("React");
 	const fetchProjects = async (page: number) =>
 		await fetchPaginatedProjects(page);
 
@@ -141,10 +140,7 @@ const ProjectList = (): JSX.Element => {
 		fetchProjects(page)
 	);
 
-	const { isLoading: filterIsLoading, data: filterData } = useQuery(
-		"filters",
-		fetchFilters
-	);
+	const { data: filterData } = useQuery("filter", fetchFilters);
 
 	const handleRender = () => {
 		if (isLoading || isFetching)
@@ -188,7 +184,11 @@ const ProjectList = (): JSX.Element => {
 				);
 			});
 		else {
-			return filteredData?.map((project: Fields) => {
+			const filteredData = data?.projects?.items?.filter((project) => {
+				return project.tech.includes(selectedFilter);
+			});
+
+			return filteredData?.map((project) => {
 				const commit = data?.commits.items.find(
 					(commit) =>
 						commit.project.toLowerCase() ===

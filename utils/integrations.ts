@@ -66,7 +66,7 @@ export const fetchLastCommitForRepo = async (repo: string) => {
 
 export const fetchFilters = async (): Promise<projectFilters.RootObject | null> => {
 	return await axios
-		.get("https://ceefend.herokuapp.com/api/project/filters")
+		.get("https://ceefend.herokuapp.com/api/project/filter")
 		.then((res) => res.data)
 		.catch((err) => {
 			console.error(err);

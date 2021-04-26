@@ -2,7 +2,6 @@
 import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
-import { Button } from "../general/input";
 import { HeaderText, ParagraphText } from "../general/text";
 import { FaGithubSquare, FaLinkedin } from "react-icons/fa";
 import { Anchor } from "../general/general";
@@ -14,6 +13,7 @@ const CallToAction = styled.section`
 	align-items: center;
 	flex-direction: column;
 	width: 100%;
+	height: 100%;
 	border-radius: var(--border-radius);
 
 	@media (min-width: 30em) {
@@ -40,31 +40,13 @@ const CenteredText = styled(ParagraphText)`
 	margin-bottom: 1rem;
 `;
 
-const ButtonContainer = styled.div`
-	width: 50%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin: 1rem 0;
-
-	button {
-		width: 100%;
-	}
-
-	@media (min-width: 30em) {
-		width: 50%;
-	}
-	@media (max-width: 30em) {
-		width: 100%;
-	}
-`;
-
 const IconContainer = styled.div`
 	display: flex;
 	align-items: center;
 	flex-direction: row;
 	margin: 1rem 0;
 	justify-content: space-around;
+
 	svg {
 		height: 2rem;
 		width: auto;
@@ -78,9 +60,11 @@ const IconContainer = styled.div`
 			opacity: 0.9;
 		}
 	}
+
 	@media (min-width: 30em) {
 		width: 20%;
 	}
+
 	@media (max-width: 30em) {
 		width: 100%;
 	}
@@ -107,7 +91,7 @@ const ActionContainer = styled.div`
 	@media (min-width: 30em) {
 		flex: 1 1 50%;
 		flex-direction: column;
-
+		height: 100%;
 		p {
 			width: 10%;
 		}
@@ -126,7 +110,7 @@ const StyledAnchor = styled(Anchor)`
 	@media (max-width: 30em) {
 		width: 100%;
 	}
-	height: 2.2rem;
+	height: 2rem;
 	background-color: var(--purple);
 	border: 2px solid var(--purple);
 	font-weight: bold;
