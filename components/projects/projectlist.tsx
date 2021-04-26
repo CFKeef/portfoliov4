@@ -13,7 +13,7 @@ import {
 	fetchProjects,
 } from "../../utils/integrations";
 import LoadingCard from "../general/projectcard/skeleton";
-import { Skeleton } from "../general/projectcard/components";
+
 import { Fields } from "../../interfaces";
 
 const Container = styled.section`
@@ -223,9 +223,14 @@ const ProjectList = (): JSX.Element => {
 		<Container>
 			<ListBar>
 				{filterData?.filters && (
-					<ProjectSelect onSelect={handleSelect} data={filterData.filters} />
+					<ProjectSelect
+						onSelect={handleSelect}
+						data={filterData.filters}
+					/>
 				)}
-				{!filterData && <ProjectSelect onSelect={handleSelect} data={options} />}
+				{!filterData && (
+					<ProjectSelect onSelect={handleSelect} data={options} />
+				)}
 			</ListBar>
 			<SectionSplitterText>
 				{isLoading ? "Loading" : "Results"}
