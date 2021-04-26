@@ -102,20 +102,22 @@ const SelectLabel = styled.label`
 	}
 `;
 
+type Item = { label: string; value: string };
+
 interface SelectProps {
-	data: { label: string; value: string }[] | null | undefined;
-	onSelect: (e) => void
+	data: Item[] | null | undefined;
+	onSelect: (select: Item) => void;
 }
 
 const ProjectSelect: React.FunctionComponent<SelectProps> = ({
 	data,
-	onSelect
+	onSelect,
 }): JSX.Element => {
 	return (
 		<SelectContainer>
 			<SelectLabel>Filter by Technology</SelectLabel>
 			<CustomSelect
-			
+				onChange={onSelect}
 				options={data}
 				classNamePrefix={"Select"}
 				instanceId={"filter"}

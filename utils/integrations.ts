@@ -52,6 +52,22 @@ export const fetchPaginatedProjects = async (
 		});
 };
 
+export const fetchFilteredPaginatedProjects = async (
+	page: number,
+	tech: string
+): Promise<paginatedProjects.RootObject | null> => {
+	return await axios
+		.get<paginatedProjects.RootObject>(
+			`https://ceefend.herokuapp.com/api/project/filter/`,
+			{ params: { tech: tech, page: page } }
+		)
+		.then((res) => res.data)
+		.catch((err) => {
+			console.error(err);
+			return null;
+		});
+};
+
 // This is a really gigantic json
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const fetchLastCommitForRepo = async (repo: string) => {

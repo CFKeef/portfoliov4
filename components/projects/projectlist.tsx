@@ -8,13 +8,14 @@ import { useQuery, QueryClient } from "react-query";
 import { dehydrate } from "react-query/hydration";
 
 import {
+	fetchFilteredPaginatedProjects,
 	fetchFilters,
 	fetchPaginatedProjects,
 	fetchProjects,
 } from "../../utils/integrations";
 import LoadingCard from "../general/projectcard/skeleton";
 
-import { Fields } from "../../interfaces";
+import { paginatedProjects } from "../../interfaces";
 
 const Container = styled.section`
 	width: 100%;
@@ -132,9 +133,14 @@ const ProjectList = (): JSX.Element => {
 	// @ts-ignore
 	const [page, setPage] = useState(1);
 	const [isFiltered, setIsFiltered] = useState(false);
-	const [selectedFilter, setSelectedFilter] = useState("React");
-	const fetchProjects = async (page: number) =>
-		await fetchPaginatedProjects(page);
+	const [
+		filteredData,
+		setFilteredData,
+	] = useState<paginatedProjects.RootObject>();
+
+	const fetchProjects = async (page: number) => {
+		return await fetchPaginatedProjects(page);
+	};
 
 	const { isFetching, isLoading, data } = useQuery(["cardData", page], () =>
 		fetchProjects(page)
@@ -158,7 +164,9 @@ const ProjectList = (): JSX.Element => {
 	};
 
 	const generateControls = () => {
-		const count = data?.projects.totalPages;
+		const count = isFiltered
+			? filteredData?.projects.totalPages
+			: data?.projects.totalPages;
 		const arr = Array.from(Array(count), (_e, i) => i + 1);
 
 		return arr.map((num) => {
@@ -184,11 +192,7 @@ const ProjectList = (): JSX.Element => {
 				);
 			});
 		else {
-			const filteredData = data?.projects?.items?.filter((project) => {
-				return project.tech.includes(selectedFilter);
-			});
-
-			return filteredData?.map((project) => {
+			return filteredData?.projects?.items.map((project) => {
 				const commit = data?.commits.items.find(
 					(commit) =>
 						commit.project.toLowerCase() ===
@@ -215,8 +219,20 @@ const ProjectList = (): JSX.Element => {
 		}
 	};
 
-	const handleSelect = (e) => {
-		console.log(e);
+	const handleSelect = async (select: { label: string; value: string }) => {
+		if (select && data) {
+			setIsFiltered(true);
+			setPage(1);
+			const data = await fetchFilteredPaginatedProjects(
+				page,
+				select.label
+			);
+
+			if (data) setFilteredData(data);
+		} else {
+			setIsFiltered(false);
+			setPage(1);
+		}
 	};
 
 	return (
