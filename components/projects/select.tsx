@@ -103,16 +103,19 @@ const SelectLabel = styled.label`
 `;
 
 interface SelectProps {
-	data: { label: string; value: string }[];
+	data: { label: string; value: string }[] | null | undefined;
+	onSelect: (e) => void
 }
 
 const ProjectSelect: React.FunctionComponent<SelectProps> = ({
 	data,
+	onSelect
 }): JSX.Element => {
 	return (
 		<SelectContainer>
 			<SelectLabel>Filter by Technology</SelectLabel>
 			<CustomSelect
+			
 				options={data}
 				classNamePrefix={"Select"}
 				instanceId={"filter"}

@@ -84,3 +84,15 @@ export namespace paginatedProjects {
 		items: Fields[];
 	}
 }
+
+// GET project filters res
+export namespace projectFilters {
+	export interface RootObject {
+		filters: Filter[];
+	}
+
+	export interface Filter {
+		label: string;
+		value: string;
+	}
+}

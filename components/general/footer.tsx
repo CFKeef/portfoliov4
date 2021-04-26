@@ -3,6 +3,8 @@ import React from "react";
 import styled from "styled-components";
 import { SectionSplitterText } from "./text";
 
+import Resume from "../../public/GolebiewskiPatryckResume.pdf";
+
 const FooterContainer = styled.footer`
 	width: 100%;
 	margin-top: 1rem;
@@ -50,19 +52,24 @@ const Footer = (): JSX.Element => {
 			</Column>
 			<Column>
 				<ColumnHeader>Social</ColumnHeader>
-				<Link href={"https://github.com/CFKeef"} passHref={true}>
-					<ColumnEntry href={"https://github.com/CFKeef"}>
-						Github
-					</ColumnEntry>
-				</Link>
-				<Link
+
+				<ColumnEntry href={"https://github.com/CFKeef"} target="_blank">
+					Github
+				</ColumnEntry>
+
+				<ColumnEntry
 					href={"https://www.linkedin.com/in/patryckg/"}
-					passHref={true}
+					target="_blank"
 				>
-					<ColumnEntry href={"https://www.linkedin.com/in/patryckg/"}>
-						Linkedin
-					</ColumnEntry>
-				</Link>
+					Linkedin
+				</ColumnEntry>
+			</Column>
+			<Column>
+				<ColumnHeader>Documents</ColumnHeader>
+
+				<ColumnEntry href={Resume} target="_blank">
+					View Resume
+				</ColumnEntry>
 			</Column>
 		</FooterContainer>
 	);

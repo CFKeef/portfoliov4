@@ -8,10 +8,13 @@ import { useQuery, QueryClient } from "react-query";
 import { dehydrate } from "react-query/hydration";
 
 import {
+	fetchFilters,
 	fetchPaginatedProjects,
 	fetchProjects,
 } from "../../utils/integrations";
 import LoadingCard from "../general/projectcard/skeleton";
+import { Skeleton } from "../general/projectcard/components";
+import { Fields } from "../../interfaces";
 
 const Container = styled.section`
 	width: 100%;
@@ -128,11 +131,19 @@ const ProjectList = (): JSX.Element => {
 	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 	// @ts-ignore
 	const [page, setPage] = useState(1);
-
+	const [isFiltered, setIsFiltered] = useState(false);
+	const [filteredData, setFilteredData] = useState();
+	const [selectedFilter, setSelectedFilter] = useState();
 	const fetchProjects = async (page: number) =>
 		await fetchPaginatedProjects(page);
+
 	const { isFetching, isLoading, data } = useQuery(["cardData", page], () =>
 		fetchProjects(page)
+	);
+
+	const { isLoading: filterIsLoading, data: filterData } = useQuery(
+		"filters",
+		fetchFilters
 	);
 
 	const handleRender = () => {
@@ -166,21 +177,55 @@ const ProjectList = (): JSX.Element => {
 	};
 
 	const generateProjectCards = () => {
-		return data?.projects?.items?.map((project, index) => {
-			return (
-				<Project
-					key={project.repoName}
-					commit={data.commits.items[index]}
-					data={project}
-				/>
-			);
-		});
+		if (!isFiltered)
+			return data?.projects?.items?.map((project, index) => {
+				return (
+					<Project
+						key={project.repoName}
+						commit={data.commits.items[index]}
+						data={project}
+					/>
+				);
+			});
+		else {
+			return filteredData?.map((project: Fields) => {
+				const commit = data?.commits.items.find(
+					(commit) =>
+						commit.project.toLowerCase() ===
+						project.repoName.toLowerCase()
+				);
+
+				return (
+					<Project
+						key={project.repoName}
+						commit={
+							commit
+								? commit
+								: {
+										project: project.repoName,
+										message: "Updated index.tsx",
+										commitPosted: new Date(),
+										// eslint-disable-next-line no-mixed-spaces-and-tabs
+								  }
+						}
+						data={project}
+					/>
+				);
+			});
+		}
+	};
+
+	const handleSelect = (e) => {
+		console.log(e);
 	};
 
 	return (
 		<Container>
 			<ListBar>
-				<ProjectSelect data={options} />
+				{filterData?.filters && (
+					<ProjectSelect onSelect={handleSelect} data={filterData.filters} />
+				)}
+				{!filterData && <ProjectSelect onSelect={handleSelect} data={options} />}
 			</ListBar>
 			<SectionSplitterText>
 				{isLoading ? "Loading" : "Results"}
