@@ -96,3 +96,20 @@ export namespace projectFilters {
 		value: string;
 	}
 }
+
+export namespace singleProject {
+	export interface RootObject {
+		project: Project;
+		commit: Commit;
+	}
+
+	interface Commit {
+		project: string;
+		message: string;
+		commitPosted: Date;
+	}
+
+	interface Project extends Fields {
+		order: number;
+	}
+}

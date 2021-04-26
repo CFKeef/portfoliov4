@@ -28,12 +28,6 @@ const Integrations: React.FunctionComponent = (): JSX.Element => {
 				queryFn: fetchGithubCommits,
 			},
 			{
-				id: "caffeine",
-				label: "Milligrams of Caffeine Consumed",
-				unit: "mg",
-				queryFn: fetchGithubCommits,
-			},
-			{
 				id: "projects",
 				label: "Published Projects",
 				unit: "deployed",

@@ -1,5 +1,10 @@
 import axios from "axios";
-import { CardData, paginatedProjects, projectFilters } from "../interfaces";
+import {
+	CardData,
+	paginatedProjects,
+	projectFilters,
+	singleProject,
+} from "../interfaces";
 
 declare namespace github {
 	export interface response {
@@ -83,6 +88,20 @@ export const fetchLastCommitForRepo = async (repo: string) => {
 export const fetchFilters = async (): Promise<projectFilters.RootObject | null> => {
 	return await axios
 		.get("https://ceefend.herokuapp.com/api/project/filter")
+		.then((res) => res.data)
+		.catch((err) => {
+			console.error(err);
+			return null;
+		});
+};
+
+export const fetchProjectByPriority = async (
+	status: number
+): Promise<singleProject.RootObject | null> => {
+	return await axios
+		.get("https://ceefend.herokuapp.com/api/project/", {
+			params: { status: status },
+		})
 		.then((res) => res.data)
 		.catch((err) => {
 			console.error(err);
