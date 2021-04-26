@@ -9,9 +9,15 @@ import {
 	GithubSection,
 } from "./components";
 
-const LoadingCard = () => {
+interface CardProps {
+	shouldGrow?: boolean;
+}
+
+const LoadingCard: React.FunctionComponent<CardProps> = ({
+	shouldGrow,
+}: CardProps) => {
 	return (
-		<ProjectContainer>
+		<ProjectContainer shouldGrow={shouldGrow}>
 			<PositionContainer>
 				<Skeleton style={{ height: "8rem" }} />
 				<TitleBar>

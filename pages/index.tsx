@@ -26,9 +26,11 @@ const SelectedProjectContainer = styled.section`
 	align-items: center;
 
 	@media (max-width: 30em) {
-		width: 100%;
+		min-width: 100%;
 	}
 	@media (min-width: 30em) {
+		max-width: 50%;
+		min-width: 50%;
 		width: 50%;
 	}
 `;

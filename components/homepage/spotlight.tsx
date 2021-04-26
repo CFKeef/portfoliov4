@@ -19,11 +19,7 @@ const Spotlight: React.FunctionComponent = (): JSX.Element => {
 				/>
 			);
 		} else {
-			return (
-				<React.Fragment>
-					<LoadingCard />
-				</React.Fragment>
-			);
+			return <LoadingCard shouldGrow={true} />;
 		}
 	};
 

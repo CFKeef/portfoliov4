@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ProjectContainer = styled.li`
+export const ProjectContainer = styled.li<{ shouldGrow?: boolean }>`
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -13,6 +13,8 @@ export const ProjectContainer = styled.li`
 		flex: 0 0 48%;
 		min-height: 36rem;
 		margin: 1.5rem 0;
+
+		${({ shouldGrow }) => shouldGrow && `min-width: 100%`}
 	}
 
 	@media (max-width: 30em) {
