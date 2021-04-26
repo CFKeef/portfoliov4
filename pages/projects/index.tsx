@@ -10,9 +10,7 @@ import ProjectList from "../../components/projects/projectlist";
 const Projects: React.FunctionComponent = (): JSX.Element => {
 	return (
 		<Layout title="Projects | Patryck.dev">
-			<SectionSplitterText style={{ marginTop: "1.5rem" }}>
-				Background
-			</SectionSplitterText>
+			<SectionSplitterText>Background</SectionSplitterText>
 			<HeaderText>Here's what I've done!</HeaderText>
 			<ParagraphText>
 				Current tech stack consists of Typescript, NextJS and React for

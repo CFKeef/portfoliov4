@@ -4,15 +4,10 @@ import {
 	ParagraphText,
 	SectionSplitterText,
 } from "../general/text/index";
-import styled from "styled-components";
-const Spacer = styled.br`
-	margin-top: 1rem;
-`;
 
 const Hero: React.FunctionComponent = () => {
 	return (
 		<React.Fragment>
-			<Spacer />
 			<SectionSplitterText>Introduction</SectionSplitterText>
 			<HeaderText>Hi, I'm Patryck</HeaderText>
 			<ParagraphText>

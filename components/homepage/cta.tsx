@@ -118,6 +118,34 @@ const ActionContainer = styled.div`
 	}
 `;
 
+const StyledAnchor = styled(Anchor)`
+	@media (min-width: 30em) {
+		width: 50%;
+	}
+
+	@media (max-width: 30em) {
+		width: 100%;
+	}
+	height: 2.2rem;
+	background-color: var(--purple);
+	border: 2px solid var(--purple);
+	font-weight: bold;
+	border-radius: var(--border-radius);
+	transition: background-color 0.15s ease;
+	color: var(--buttonText);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&:hover {
+		background-color: var(--bg);
+		cursor: pointer;
+	}
+	&:active {
+		opacity: 0.9;
+	}
+`;
+
 const CTA = () => {
 	return (
 		<CallToAction>
@@ -132,13 +160,10 @@ const CTA = () => {
 				</CenteredText>
 			</ContentContainer>
 			<ActionContainer>
-				<ButtonContainer>
-					<Button>
-						<Link href={"/contact"} passHref={true}>
-							<Anchor href={"/contact"}>Break the Ice</Anchor>
-						</Link>
-					</Button>
-				</ButtonContainer>
+				<Link href={"/contact"} passHref={true}>
+					<StyledAnchor href={"/contact"}>Break the Ice</StyledAnchor>
+				</Link>
+
 				<IconContainer>
 					<Link href={"https://github.com/CFKeef"} passHref={true}>
 						<a href={"https://github.com/CFKeef"}>

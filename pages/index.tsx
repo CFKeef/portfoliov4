@@ -21,7 +21,6 @@ const IndexPage: React.FunctionComponent<Props> = () => (
 	<Layout title="Patryck's Portfolio">
 		<Hero />
 		<Integrations />
-
 		<CTA />
 	</Layout>
 );

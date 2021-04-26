@@ -52,7 +52,6 @@ const Footer = (): JSX.Element => {
 			</Column>
 			<Column>
 				<ColumnHeader>Social</ColumnHeader>
-
 				<ColumnEntry href={"https://github.com/CFKeef"} target="_blank">
 					Github
 				</ColumnEntry>
@@ -66,9 +65,8 @@ const Footer = (): JSX.Element => {
 			</Column>
 			<Column>
 				<ColumnHeader>Documents</ColumnHeader>
-
 				<ColumnEntry href={Resume} target="_blank">
-					View Resume
+					Resume
 				</ColumnEntry>
 			</Column>
 		</FooterContainer>

@@ -17,9 +17,7 @@ const Contact = (): JSX.Element => {
 	return (
 		<Layout title="Contact Me! | Patryck.dev">
 			<Container>
-				<SectionSplitterText style={{ marginTop: "1.5rem" }}>
-					Contact
-				</SectionSplitterText>
+				<SectionSplitterText>Contact</SectionSplitterText>
 				<HeaderText>Let's Chat</HeaderText>
 				<Form />
 			</Container>
