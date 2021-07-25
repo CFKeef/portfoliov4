@@ -173,9 +173,14 @@ export const TimeText = styled.span`
 export const ImageContainer = styled.div`
 	height: 11rem;
 	width: 100%;
+	background-color: rgba(219, 59, 147, 0.5);
+	border-radius: var(--border-radius);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	img {
-		height: auto;
-		max-width: 100%;
+		height: 100%;
+		width: auto;
 		border-radius: calc(var(--border-radius) / 2);
 	}
 	[data-src]::before {
