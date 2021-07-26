@@ -11,16 +11,13 @@ export const ProjectContainer = styled.li<{ shouldGrow?: boolean }>`
 
 	@media (min-width: 30em) {
 		flex: 0 0 48%;
-		min-height: 36rem;
-		margin: 1.5rem 0;
+		height: 100%;
 
 		${({ shouldGrow }) => shouldGrow && `min-width: 100%`}
 	}
 
 	@media (max-width: 30em) {
-		height: 36rem;
 		width: 100%;
-		margin: 1rem 0;
 	}
 `;
 export const PositionContainer = styled.div`
@@ -178,6 +175,7 @@ export const ImageContainer = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
 	img {
 		height: 100%;
 		width: auto;

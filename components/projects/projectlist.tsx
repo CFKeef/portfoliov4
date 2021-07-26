@@ -40,16 +40,17 @@ const ListContainer = styled.ul`
 	display: flex;
 
 	@media (max-width: 30em) {
-		flex-direction: column;
-		justify-content: space-between;
-		align-items: center;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 1fr 1fr 1fr;
+		grid-gap: 1rem;
 	}
 
 	@media (min-width: 30em) {
-		justify-content: space-between;
-		align-items: flex-start;
-		flex-direction: row;
-		flex-wrap: wrap;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+		grid-gap: 1rem;
 	}
 `;
 
@@ -115,6 +116,9 @@ const Control = styled.li<{ selected: boolean }>`
 			selected ? "var(--buttonText)" : "rgba(255, 255, 255, 0.4)"};
 
 		${({ selected }) => (selected ? activeButton : inactiveButton)}
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 `;
 
@@ -133,10 +137,8 @@ const ProjectList = (): JSX.Element => {
 	// @ts-ignore
 	const [page, setPage] = useState(1);
 	const [isFiltered, setIsFiltered] = useState(false);
-	const [
-		filteredData,
-		setFilteredData,
-	] = useState<paginatedProjects.RootObject>();
+	const [filteredData, setFilteredData] =
+		useState<paginatedProjects.RootObject>();
 
 	const fetchProjects = async (page: number) => {
 		return await fetchPaginatedProjects(page);
