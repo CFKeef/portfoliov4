@@ -15,7 +15,7 @@ const CallToAction = styled.section`
 	width: 100%;
 	height: 100%;
 	border-radius: var(--border-radius);
-
+	margin-top: 1rem;
 	@media (min-width: 30em) {
 		justify-content: center;
 		align-items: center;
