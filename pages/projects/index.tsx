@@ -14,14 +14,7 @@ const Projects: React.FunctionComponent = (): JSX.Element => {
 			<HeaderText>Here's what I've done!</HeaderText>
 			<ParagraphText>
 				Current tech stack consists of Typescript, NextJS and React for
-				Front end. On the backend I've used Express and Fastify before
-				and at my work I work with a barebones Java servlet.
-			</ParagraphText>
-			<ParagraphText>
-				In my free time I really do enjoy sampling tech and my FrontEnd
-				Masters subscription makes it really easy to do so. So I've
-				already been exposed to a ton of things and find it easy to
-				adapt to needs or expectations of the role.
+				Front end. On the backend I've worked with Javascript, Java and currently working to learn Golang!
 			</ParagraphText>
 			<SectionSplitterText>List Controls</SectionSplitterText>
 			<ProjectList />
